@@ -22,10 +22,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag docker-react-i:$(date +%s)
-
-    - name: Docker tag
-      run:
-        docker tag docker-react-i michevskat/dockerhub:docker-react-i
+  
     - name: Docker push
       run:
-        docker push michevskat/dockerhub:docker-react-i
+        docker push michevskat/dockerhub:docker-react-i:$(date +%s)
